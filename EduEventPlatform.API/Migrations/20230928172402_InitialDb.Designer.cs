@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EduEventPlatform.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230928055142_InitialDb")]
+    [Migration("20230928172402_InitialDb")]
     partial class InitialDb
     {
         /// <inheritdoc />
@@ -133,6 +133,9 @@ namespace EduEventPlatform.API.Migrations
                         .HasColumnType("nvarchar(300)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("NameParticipant")
+                        .IsUnique();
 
                     b.ToTable("Participants");
                 });

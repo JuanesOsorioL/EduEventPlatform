@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduEventPlatform.API", "EduEventPlatform.API\EduEventPlatform.API.csproj", "{98B0D39D-F63F-4E1A-BBF7-282F9DCE3D76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduEventPlatform.API", "EduEventPlatform.API\EduEventPlatform.API.csproj", "{98B0D39D-F63F-4E1A-BBF7-282F9DCE3D76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduEventPlatform.WEB", "EduEventPlatform.WEB\EduEventPlatform.WEB.csproj", "{8EFDEBDF-42EA-447B-BDFD-CB6ED68EFC52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduEventPlatform.WEB", "EduEventPlatform.WEB\EduEventPlatform.WEB.csproj", "{8EFDEBDF-42EA-447B-BDFD-CB6ED68EFC52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduEventPlatform.Shared", "EduEventPlatform.Shared\EduEventPlatform.Shared.csproj", "{A1B251E4-3401-44B0-B141-B1A7A7D17A51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduEventPlatform.Shared", "EduEventPlatform.Shared\EduEventPlatform.Shared.csproj", "{A1B251E4-3401-44B0-B141-B1A7A7D17A51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
