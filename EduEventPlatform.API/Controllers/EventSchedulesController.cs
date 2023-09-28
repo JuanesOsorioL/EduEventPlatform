@@ -20,9 +20,8 @@ namespace EduEventPlatform.API.Controllers
         [HttpGet]
         public async Task<ActionResult> Get()
         {
-            return Ok(await _dataContext.EventSchedule.ToListAsync());
+            return Ok(await _dataContext.EventsSchedule.ToListAsync());
         }
-
 
         [HttpPost]
         public async Task<ActionResult> Post(EventSchedule eventSchedule)
@@ -35,7 +34,7 @@ namespace EduEventPlatform.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult> Get(int id)
         {
-            var eventSchedule = await _dataContext.EventSchedule.FirstOrDefaultAsync(X => X.Id == id);
+            var eventSchedule = await _dataContext.EventsSchedule.FirstOrDefaultAsync(X => X.Id == id);
             return eventSchedule == null ? NotFound() : Ok(eventSchedule);
         }
 
@@ -50,7 +49,7 @@ namespace EduEventPlatform.API.Controllers
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete(int id)
         {
-            var filaafectada = await _dataContext.EventSchedule
+            var filaafectada = await _dataContext.EventsSchedule
                 .Where(x => x.Id == id).ExecuteDeleteAsync();
             return filaafectada == 0 ? NotFound() : NoContent();
         }

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EduEventPlatform.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230928031150_InitialDb")]
+    [Migration("20230928055142_InitialDb")]
     partial class InitialDb
     {
         /// <inheritdoc />
@@ -102,6 +102,39 @@ namespace EduEventPlatform.API.Migrations
                         .IsUnique();
 
                     b.ToTable("EventsSchedule");
+                });
+
+            modelBuilder.Entity("EduEventPlatform.Shared.Entities.Participant", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AreaInterest")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("InstitutionalAffiliation")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("NameParticipant")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("TypeParticipation")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Participants");
                 });
 #pragma warning restore 612, 618
         }

@@ -9,6 +9,7 @@ namespace EduEventPlatform.API.Data
         {
 
         }
+        //Participantes
         public DbSet<Participant> Participants { get; set; }
         //Evento Académico
         public DbSet<AcademicEvent> AcademicEvents { get; set; }
@@ -21,6 +22,9 @@ namespace EduEventPlatform.API.Data
             modelBuilder.Entity<AcademicEvent>().HasIndex(a => a.EventName).IsUnique();
             //Programa del Evento
             modelBuilder.Entity<EventSchedule>().HasIndex(e => e.SessionName).IsUnique();
+            //Participantes
+            modelBuilder.Entity<Participant>().HasIndex(p => p.NameParticipant).IsUnique();
+
         }
 
     }

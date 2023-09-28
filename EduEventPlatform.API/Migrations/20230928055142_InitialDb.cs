@@ -46,6 +46,22 @@ namespace EduEventPlatform.API.Migrations
                     table.PrimaryKey("PK_EventsSchedule", x => x.Id);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Participants",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NameParticipant = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    InstitutionalAffiliation = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    AreaInterest = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    TypeParticipation = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Participants", x => x.Id);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AcademicEvents_EventName",
                 table: "AcademicEvents",
@@ -67,6 +83,9 @@ namespace EduEventPlatform.API.Migrations
 
             migrationBuilder.DropTable(
                 name: "EventsSchedule");
+
+            migrationBuilder.DropTable(
+                name: "Participants");
         }
     }
 }
