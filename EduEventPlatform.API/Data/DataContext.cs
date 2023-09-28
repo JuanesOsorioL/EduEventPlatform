@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using EduEventPlatform.Shared.Entities;
+﻿using EduEventPlatform.Shared.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace EduEventPlatform.API.Data
 {
@@ -9,6 +9,7 @@ namespace EduEventPlatform.API.Data
         {
 
         }
+        public DbSet<Participant> Participants { get; set; }
         //Evento Académico
         public DbSet<AcademicEvent> AcademicEvents { get; set; }
         //Programa del Evento
