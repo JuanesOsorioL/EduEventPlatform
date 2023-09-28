@@ -12,7 +12,7 @@ namespace EduEventPlatform.API.Data
 
 
         public DbSet<Participant> Participants { get; set; }
-        public DbSet<Participant> EventSchedule { get; set; }
+        public DbSet<EventSchedule> EventSchedules { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
