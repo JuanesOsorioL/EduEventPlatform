@@ -1,6 +1,9 @@
-﻿namespace EduEventPlatform.API.Controllers
+﻿using EduEventPlatform.API.Data;
+using EduEventPlatform.Shared.Entities;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
+namespace EduEventPlatform.API.Controllers
 {
-    public class EventSchedulesController
-    {
-    }
+  
 }
