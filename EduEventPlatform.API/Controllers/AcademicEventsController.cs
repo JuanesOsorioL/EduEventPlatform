@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace EduEventPlatform.API.Controllers
 {
     [ApiController]
-    [Route("api/AcademicEvent")]
+    [Route("api/AcademicEvents")]
     public class AcademicEventsController : ControllerBase
     {
         private readonly DataContext _dataContext;
