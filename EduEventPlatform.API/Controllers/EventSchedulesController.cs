@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EduEventPlatform.API.Controllers
 {
-
     [ApiController]
     [Route("api/EventSchedule")]
     public class EventSchedulesController : ControllerBase
