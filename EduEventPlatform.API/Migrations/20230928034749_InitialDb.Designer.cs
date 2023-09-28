@@ -14,7 +14,7 @@ namespace EduEventPlatform.API.Migrations
     [Migration("20230928034749_InitialDb")]
     partial class InitialDb
     {
-        /// <inheritdoc />
+
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
