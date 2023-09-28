@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using EduEventPlatform.Shared.Entities;
+﻿using EduEventPlatform.Shared.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace EduEventPlatform.API.Data
 {
@@ -9,7 +9,10 @@ namespace EduEventPlatform.API.Data
         {
 
         }
-        public DbSet<AcademicEvent> Countries { get; set; }
+
+
+        public DbSet<Participant> Participants { get; set; }
+        public DbSet<Participant> EventSchedule { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

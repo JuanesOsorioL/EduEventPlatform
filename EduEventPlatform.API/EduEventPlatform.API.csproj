@@ -21,4 +21,8 @@
     <ProjectReference Include="..\EduEventPlatform.WEB\EduEventPlatform.WEB.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>
