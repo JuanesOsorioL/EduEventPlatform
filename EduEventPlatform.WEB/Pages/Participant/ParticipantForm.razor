@@ -7,12 +7,12 @@
     <div class="mb-3">
         <label>Nombre del Participante:</label>
         <div>
-            <InputDate class="form-control" @bind-Value="@participant.NameParticipant" />
+            <InputText class="form-control" @bind-Value="@participant.NameParticipant" />
             <ValidationMessage For="@(() => participant.NameParticipant)" />
         </div>
         <label>Afiliación Institucional:</label>
         <div>
-            <InputDate class="form-control" @bind-Value="@participant.InstitutionalAffiliation" />
+            <InputText class="form-control" @bind-Value="@participant.InstitutionalAffiliation" />
             <ValidationMessage For="@(() => participant.InstitutionalAffiliation)" />
         </div>
         <label>Area de Interes:</label>

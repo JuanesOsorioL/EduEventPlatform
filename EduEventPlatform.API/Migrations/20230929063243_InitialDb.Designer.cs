@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EduEventPlatform.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230928172402_InitialDb")]
+    [Migration("20230929063243_InitialDb")]
     partial class InitialDb
     {
         /// <inheritdoc />
