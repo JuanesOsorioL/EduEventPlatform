@@ -131,6 +131,9 @@ namespace EduEventPlatform.API.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("NameParticipant")
+                        .IsUnique();
+
                     b.ToTable("Participants");
                 });
 #pragma warning restore 612, 618

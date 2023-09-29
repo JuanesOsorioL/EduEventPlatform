@@ -73,6 +73,12 @@ namespace EduEventPlatform.API.Migrations
                 table: "EventsSchedule",
                 column: "SessionName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Participants_NameParticipant",
+                table: "Participants",
+                column: "NameParticipant",
+                unique: true);
         }
 
         /// <inheritdoc />
