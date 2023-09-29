@@ -1,0 +1,70 @@
+﻿@page "/Participant/edit/{Id:int}"
+
+@using EduEventPlatform.Shared.Entities;
+@inject NavigationManager navigationManager
+@inject IRepository repository
+@inject SweetAlertService swal
+
+<h3>Editar Participante</h3>
+
+@if (participant is null)
+{
+    <div class="align-items-center">
+        <img src=" https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!bw700 " />
+    </div>
+}
+else
+{
+    <ParticipantForm @ref="participantForm" participant="participant" OnSubmit="Edit" ReturnAction="Return" />
+}
+
+@code {
+    private Participant? participant;
+    private ParticipantForm? participantForm;
+
+    [Parameter]
+    public int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var responseHTTP = await repository.Get<Participant>($"api/Participant/{Id}");
+
+        if (responseHTTP.Error)
+        {
+            if (responseHTTP.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                navigationManager.NavigateTo("Participant");
+            }
+            else
+            {
+                var messageError = await responseHTTP.GetErrorMessageAsync();
+                await swal.FireAsync("Error", messageError, SweetAlertIcon.Error);
+            }
+        }
+        else
+        {
+            participant = responseHTTP.Response;
+        }
+    }
+
+    private async Task Edit()
+    {
+        var responseHTTP = await repository.Put("api/Participant", participant);
+
+        if (responseHTTP.Error)
+        {
+            var mensajeError = await responseHTTP.GetErrorMessageAsync();
+            await swal.FireAsync("Error", mensajeError, SweetAlertIcon.Error);
+        }
+        else
+        {
+            participantForm!.FormPostedSuccessfully = true;
+            navigationManager.NavigateTo("Participant");
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("Participant");
+    }
+}
