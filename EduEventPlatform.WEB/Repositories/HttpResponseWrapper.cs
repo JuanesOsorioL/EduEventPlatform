@@ -1,5 +1,4 @@
-﻿
-using System.Net;
+﻿using System.Net;
 
 namespace EduEventPlatform.WEB.Repositories
 {
@@ -18,8 +17,31 @@ namespace EduEventPlatform.WEB.Repositories
 
         public HttpResponseMessage HttpResponseMessage { get; set; }
 
+        //Opcion 2-->
+        /*
+        private string BuildFriendlyErrorMessage(ValidationErrorResponse errorObj)
+        {
+            if (errorObj?.errors == null) return "Datos incompletos o incorrectos. Por favor, revise y complete el formulario.";
+
+            var sb = new StringBuilder();
+            sb.AppendLine("Por favor corrija los siguientes errores:");
+
+            foreach (var error in errorObj.errors)
+            {
+                sb.AppendLine($"- {string.Join(", ", error.Value)}");
+            }
+
+            return sb.ToString();
+        }
+        
+        private class ValidationErrorResponse
+        {
+            public Dictionary<string, List<string>> errors { get; set; }
+        }
+        */
         public async Task<string?> GetErrorMessageAsync()
         {
+
             if (!Error)
             {
                 return null;
@@ -32,7 +54,14 @@ namespace EduEventPlatform.WEB.Repositories
             }
             else if (codigoEstatus == HttpStatusCode.BadRequest)
             {
+
+                //Opcion del profe
                 return await HttpResponseMessage.Content.ReadAsStringAsync();
+                //Opcion 1-->// return "Datos incompletos o incorrectos. Por favor, revise y complete el formulario.";
+                //Opcion 2-->//var errorContent = await HttpResponseMessage.Content.ReadAsStringAsync();
+                //Opcion 2-->//var errorObj = JsonSerializer.Deserialize<ValidationErrorResponse>(errorContent);
+                //Opcion 2-->//var friendlyErrorMessage = BuildFriendlyErrorMessage(errorObj);
+                //Opcion 2-->//return friendlyErrorMessage;
             }
             else if (codigoEstatus == HttpStatusCode.Unauthorized)
             {

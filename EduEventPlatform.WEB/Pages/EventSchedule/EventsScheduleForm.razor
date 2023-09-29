@@ -1,41 +1,37 @@
-﻿﻿@using EduEventPlatform.Shared.Entities;
+﻿@using EduEventPlatform.Shared.Entities;
 @inject SweetAlertService swal
 
 <NavigationLock OnBeforeInternalNavigation="OnBeforeInternalNavigation"></NavigationLock>
 <EditForm EditContext="editContext" OnSubmit="OnSubmit">
     <DataAnnotationsValidator />
     <div class="mb-3">
-        <label>Nombre del Evento:</label>
+        <label>Horario de Inicio de la sesión:</label>
         <div>
-            <InputText class="form-control" @bind-Value="@academicEvent.EventName" />
-            <ValidationMessage For="@(() => academicEvent.EventName)" />
+            <InputDate class="form-control" @bind-Value="@eventSchedule.StartTime" />
+            <ValidationMessage For="@(() => eventSchedule.StartTime)" />
         </div>
-        <label>Fecha de Inicio:</label>
+        <label>Horario de Finalización de la sesión:</label>
         <div>
-            <InputDate class="form-control" @bind-Value="@academicEvent.StartDate" />
-            <ValidationMessage For="@(() => academicEvent.StartDate)" />
+            <InputDate class="form-control" @bind-Value="@eventSchedule.EndTime" />
+            <ValidationMessage For="@(() => eventSchedule.EndTime)" />
         </div>
-
-        <label>Fecha de Finalización:</label>
+        <label>Nombre de la Sesión:</label>
         <div>
-            <InputDate class="form-control" @bind-Value="@academicEvent.EndDate" />
-            <ValidationMessage For="@(() => academicEvent.EndDate)" />
+            <InputText class="form-control" @bind-Value="@eventSchedule.SessionName" />
+            <ValidationMessage For="@(() => eventSchedule.SessionName)" />
         </div>
-        <label>Ubicación:</label>
+ 
+        <label>Ponente:</label>
         <div>
-            <InputText class="form-control" @bind-Value="@academicEvent.Location" />
-            <ValidationMessage For="@(() => academicEvent.Location)" />
+            <InputText class="form-control" @bind-Value="@eventSchedule.Speaker" />
+            <ValidationMessage For="@(() => eventSchedule.Speaker)" />
         </div>
-        <label>Descripción:</label>
+        <label>Tema de la Sesión:</label>
         <div>
-            <InputText class="form-control" @bind-Value="@academicEvent.Description" />
-            <ValidationMessage For="@(() => academicEvent.Description)" />
+            <InputText class="form-control" @bind-Value="@eventSchedule.SessionTopic" />
+            <ValidationMessage For="@(() => eventSchedule.SessionTopic)" />
         </div>
-        <label>Tema del Evento:</label>
-        <div>
-            <InputText class="form-control" @bind-Value="@academicEvent.EventTheme" />
-            <ValidationMessage For="@(() => academicEvent.EventTheme)" />
-        </div>
+        
     </div>
     <button class="btn btn-primary" type="submit">Guardar Cambios</button>
     <button class="btn btn-success" type="button" @onclick="ReturnAction">Regresar</button>
@@ -46,13 +42,12 @@
 
     protected override void OnInitialized()
     {
-        editContext = new(academicEvent);
-
+        editContext = new(eventSchedule);
     }
 
     [EditorRequired]
     [Parameter]
-    public AcademicEvent academicEvent { get; set; } = null!;
+    public EventSchedule eventSchedule { get; set; } = null!;
 
     [EditorRequired]
     [Parameter]
