@@ -1,0 +1,33 @@
+﻿@page "/Participant/create"
+
+@using EduEventPlatform.Shared.Entities;
+@inject IRepository repository
+@inject NavigationManager navigationManager
+@inject SweetAlertService sweetAlertService
+
+<h3>Crear Participante</h3>
+<ParticipantForm @ref="participantForm" participant="participant" OnSubmit="Create" ReturnAction="Return" />
+
+@code {
+    private Participant participant = new();
+
+    private ParticipantForm? participantForm;
+
+    private async Task Create()
+    {
+        var responseHttp = await repository.Post("/api/Participant", participant);
+        if (responseHttp.Error)
+        {
+            var message = await responseHttp.GetErrorMessageAsync();
+            await sweetAlertService.FireAsync("Error", message);
+            return;
+        }
+        participantForm!.FormPostedSuccessfully = true;
+        navigationManager.NavigateTo("/Participant");
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/Participant");
+    }
+}
